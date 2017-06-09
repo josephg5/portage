@@ -1,0 +1,27 @@
+## http://wiki.gentoo.org/wiki/Knowledge_Base:Masking_a_package
+sys-apps/systemd
+sys-fs/udev
+
+dev-lang/python:3.3
+#dev-lang/python:3.4
+#dev-lang/python:3.5
+
+#=www-client/opera-12
+<www-client/opera-13
+#=www-client/opera-12.16_p1860-r1
+
+## dead ebuilds
+#=net-p2p/transmission-2.84-r4
+#=app-editors/nano-2.6.3
+#=app-office/libreoffice-5.2.3.3-r1
+
+## bloatware temp mask
+#app-office/libreoffice
+#app-office/libreoffice-l10n
+#www-client/firefox
+#dev-qt/qtwebengine
+#dev-qt/qtwebkit
+
+>app-office/libreoffice-5.2.7.2
+>app-office/libreoffice-l10n-5.2.7.2
+>www-client/firefox-52.2.0

@@ -1,0 +1,6 @@
+# required by www-client/vivaldi (argument)
+#www-client/vivaldi Vivaldi
+# required by opera (argument)
+>=www-client/opera-40 OPERA-2014
+# required by skype (argument)
+>=net-im/skype-4.0 skype-4.0.0.7-copyright

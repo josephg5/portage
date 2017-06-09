@@ -1,0 +1,41 @@
+## eix-test-obsolete
+
+#www-client/opera ~x86
+#=www-client/opera-40.0.2308.90 ~x86
+<=www-client/opera-45 ~x86
+
+=x11-misc/qlipper-5.0.0 ~x86
+=x11-terms/qterminal-0.7.1 ~x86
+=x11-misc/piedock-1.6.6-r1 ~x86
+=x11-misc/xcalib-0.9.0_p20161210 ~x86
+
+=app-misc/icdiff-1.7.3 **
+=sys-apps/fwts-17.02.00 **
+
+# required by qutebrowser (argument)
+=www-client/qutebrowser-0.9.1 ~x86
+# required by www-client/qutebrowser-0.9.1::gentoo
+# required by qutebrowser (argument)
+=dev-python/pygments-2.2.0 ~x86
+# required by net-im/skype:0 (argument)
+=net-im/skype-4.3.0.37-r6 ~x86
+# required by sys-power/thermald:0 (argument)
+=sys-power/thermald-1.6 ~x86
+# required by app-text/sigil:0 (argument)
+=app-text/sigil-0.9.6 ~x86
+# required by www-client/qutebrowser-0.9.1::gentoo
+# required by @selected
+# required by @world (argument)
+=dev-python/pypeg2-2.15.2 ~x86
+# required by lohit-devanagari (argument)
+=media-fonts/lohit-devanagari-2.95.1 ~x86
+# required by lohit-malayalam (argument)
+=media-fonts/lohit-malayalam-2.92.0 ~x86
+# required by kergen (argument)
+=sys-kernel/kergen-0.1.4 ~x86
+# required by py3status (argument)
+=x11-misc/py3status-3.5 ~x86
+# required by xdo (argument)
+=x11-misc/xdo-0.5 ~x86
+# required by luvcview (argument)
+=media-video/luvcview-0.2.6 ~x86

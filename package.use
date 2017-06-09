@@ -1,0 +1,157 @@
+#*/* -printsupport
+
+## world
+app-admin/sudo -sendmail
+app-admin/sysklogd logrotate
+#app-emulation/virtualbox -opengl -sdk
+app-emulation/virtualbox -sdk
+app-office/libreoffice -branding -cups -gstreamer -gtk
+app-text/qpdfview qt5 -sqlite
+dev-util/geany -vte
+dev-vcs/git -webdav
+lxqt-base/lxqt-meta admin -lximage -sudo -about -oxygen -policykit
+lxqt-base/lxqt-panel -kbindicator -mount
+mail-client/mutt imap sasl smime smtp
+mail-client/sylpheed -crypt spell
+#media-fonts/fontawesome -X -otf
+media-fonts/fontawesome -otf
+media-plugins/alsa-plugins ffmpeg
+#media-plugins/gst-plugins-meta ffmpeg http ogg theora vorbis
+net-im/skype apulse
+net-irc/weechat -alias -exec -fifo -relay -spell -xfer
+net-misc/youtube-dl offensive
+net-p2p/transmission lightweight qt5
+net-wireless/wpa_supplicant -hs2-0 qt5
+sys-apps/busybox -static syslog
+sys-boot/grub -fonts -themes
+sys-fs/btrfs-progs -convert
+sys-power/suspend -lzo
+www-client/firefox bindist custom-cflags custom-optimization ffmpeg gstreamer gtk2 hwaccel system-icu system-jpeg system-libvpx system-sqlite system-harfbuzz system-libevent system-cairo -gmp-autoupdate
+x11-drivers/xf86-video-intel dri3
+x11-terms/rxvt-unicode 256-color xft -vanilla
+
+## ncurses
+=app-crypt/pinentry-0.9.7-r1 ncurses
+dev-lang/python ncurses
+media-sound/alsa-utils ncurses
+sys-apps/util-linux ncurses -cramfs
+sys-libs/ncurses -minimal
+
+## X
+media-fonts/* X
+media-fonts/terminus-font -X -pcf
+media-libs/libsdl X
+media-tv/kodi X -fishbmc -projectm -rsxs -samba -usb
+media-video/mpv X lua
+www-client/links X
+www-client/elinks X
+media-libs/gst-plugins-bad X
+sys-apps/dbus X		##dunst
+=x11-libs/libva-1.7.3 X
+=x11-libs/libva-intel-driver-1.7.3 X	##mpv
+=x11-libs/cairo-1.14.8 X
+
+## dependencies
+app-crypt/gnupg -smartcard
+app-shells/bash -net
+dev-lang/ruby -rdoc
+media-libs/freetype -*
+media-libs/libcanberra -gtk
+media-libs/libpng apng
+#media-video/ffmpeg gnutls openssl theora vorbis #-fftools*
+media-video/ffmpeg libv4l openssl
+net-print/cups-filters -*
+sys-apps/kmod lzma
+sys-devel/gcc -fortran
+sys-devel/llvm -llvm_targets_AMDGPU -llvm_targets_NVPTX -static-analyzer
+x11-base/xorg-server -minimal
+x11-libs/libfm -automount
+x11-misc/xdg-utils -perl
+
+=app-text/poppler-0.45.0 qt5
+=dev-lang/python-2.7.12 sqlite
+=dev-libs/libxml2-2.9.4-r1 python
+=dev-qt/qtwebchannel-5.6.2:5 qml
+=dev-qt/qtcore-5.6.2-r1 icu
+=dev-qt/qtwebengine-5.6.2 widgets
+=dev-qt/qtwebkit-5.6.2 printsupport -opengl
+=sys-libs/zlib-1.2.11 minizip
+
+## firefox
+=dev-db/sqlite-3.17.0 secure-delete
+=media-libs/harfbuzz-1.4.5 icu
+
+## gnome
+gnome-extra/zenity -*	## spotify
+
+## gentoo emerge autounmask
+# required by dev-qt/qtgui-5.6.2::gentoo[xcb]
+# required by www-client/qupzilla-2.0.2::gentoo
+# required by @selected
+# required by @world (argument)
+=x11-libs/libxcb-1.12-r2 xkb
+# required by x11-misc/xdg-utils-1.1.1-r1::gentoo
+# required by xdg-utils (argument)
+=app-text/xmlto-0.0.26-r1 text
+# required by dev-python/wxpython-3.0.2.0::gentoo
+# required by media-gfx/displaycal-3.2.4.0::gentoo
+# required by displaycal (argument)
+=x11-libs/wxGTK-3.0.2.0-r2 tiff
+# required by www-client/qutebrowser-0.9.1::gentoo
+# required by qutebrowser (argument)
+#=dev-python/PyQt5-5.5.1 network gui webkit declarative widgets printsupport
+=dev-python/PyQt5-5.5.1 network gui webkit declarative widgets printsupport -opengl
+# required by dev-qt/qtcore-5.6.2-r1::gentoo
+# required by dev-qt/qtdbus-5.6.2::gentoo
+# required by media-gfx/lximage-qt-0.4.0::gentoo
+# required by @selected
+# required by @world (argument)
+=dev-libs/libpcre-8.40-r1 pcre16
+# required by media-tv/kodi-16.1::gentoo
+# required by media-tv/kodi:0 (argument)
+=dev-libs/libcdio-0.93 -minimal
+# required by net-im/skype-4.3.0.37-r6::gentoo
+# required by @selected
+# required by @world (argument)
+=dev-qt/qtwebkit-4.8.6-r1:4 -exceptions
+# required by app-text/sigil-0.9.6::gentoo
+# required by app-text/sigil:0 (argument)
+=dev-libs/xerces-c-3.1.4-r1 icu
+# required by lxqt-base/liblxqt-0.11.0-r1::gentoo
+# required by media-gfx/lximage-qt-0.5.0::gentoo
+# required by media-gfx/lximage-qt:0 (argument)
+=kde-frameworks/kwindowsystem-5.29.0 X
+# required by www-client/firefox-45.7.0::gentoo[system-libvpx]
+# required by www-client/firefox:0 (argument)
+=media-libs/libvpx-1.5.0 postproc svc
+# required by gnome-extra/zenity-3.22.0::gentoo
+# required by media-sound/spotify-1.0.49::gentoo
+# required by @selected
+# required by @world (argument)
+>=x11-libs/gtk+-3.22.12 X
+# required by x11-wm/i3-4.13-r1::gentoo
+# required by @selected
+# required by @world (argument)
+=x11-libs/pango-1.40.5 X
+# required by net-im/skype-4.3.0.37-r6::gentoo
+# required by @selected
+# required by @world (argument)
+=dev-qt/qtgui-4.8.7:4 accessibility
+# required by x11-base/xorg-server-1.19.3::gentoo[glamor]
+# required by x11-drivers/xf86-input-evdev-2.10.5::gentoo
+# required by @__auto_slot_operator_replace_installed__ (argument)
+=media-libs/mesa-17.0.6 egl
+# required by x11-misc/i3lock-2.8::gentoo
+# required by @selected
+# required by @world (argument)
+=x11-libs/libxkbcommon-0.7.1 X
+# required by media-libs/mesa-17.0.6::gentoo[video_cards_i965,-video_cards_i915,-video_cards_intel]
+# required by www-client/firefox-52.1.0-r1::gentoo
+# required by @selected
+# required by @world (argument)
+=x11-libs/libdrm-2.4.80 video_cards_intel
+# required by x11-libs/gtk+-3.22.15::gentoo
+# required by www-client/firefox-52.1.0-r1::gentoo[-gtk2]
+# required by @selected
+# required by @world (argument)
+=media-libs/libepoxy-1.4.2 X
