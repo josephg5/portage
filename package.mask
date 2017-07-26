@@ -2,13 +2,18 @@
 sys-apps/systemd
 sys-fs/udev
 
-dev-lang/python:3.3
+#dev-lang/python:3.3
 #dev-lang/python:3.4
 #dev-lang/python:3.5
 
+#sys-apps/texinfo
+#app-text/pinfo
+
+#www-client/opera
 #=www-client/opera-12
-<www-client/opera-13
 #=www-client/opera-12.16_p1860-r1
+<www-client/opera-13
+#>www-client/opera-45.0.2552.898
 
 ## dead ebuilds
 #=net-p2p/transmission-2.84-r4

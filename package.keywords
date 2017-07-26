@@ -2,9 +2,9 @@
 
 #www-client/opera ~x86
 #=www-client/opera-40.0.2308.90 ~x86
-<=www-client/opera-45 ~x86
+#<www-client/opera-45.0.2552.898 ~x86
 
-=x11-misc/qlipper-5.0.0 ~x86
+#=x11-misc/qlipper-5.0.0 ~x86
 =x11-terms/qterminal-0.7.1 ~x86
 =x11-misc/piedock-1.6.6-r1 ~x86
 =x11-misc/xcalib-0.9.0_p20161210 ~x86
@@ -39,3 +39,15 @@
 =x11-misc/xdo-0.5 ~x86
 # required by luvcview (argument)
 =media-video/luvcview-0.2.6 ~x86
+# required by xidle (argument)
+=x11-misc/xidle-26052015 ~x86
+# required by firejail-lts (argument)
+=sys-apps/firejail-lts-0.9.38.10 **
+# required by firejail (argument)
+=sys-apps/firejail-0.9.46 **
+# required by zram-init (argument)
+=sys-block/zram-init-3.8 ~x86
+# required by opera (argument)
+=www-client/opera-46.0.2597.57 **
+# required by heimdall (argument)
+=app-mobilephone/heimdall-9999 **
