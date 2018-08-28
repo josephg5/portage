@@ -1,69 +1,90 @@
+## eix-test-obsolete
+
 #*/* -printsupport
+
+## android
+#dev-java/icedtea-bin -cups
+
+## wayland
+##=x11-base/xorg-server-1.19.5 wayland
+##=media-libs/mesa-17.2.7 gbm gles2 egl
+#dev-libs/weston X xwayland
+##dev-libs/sway swaygrab swaylock
+##=dev-libs/wlc-0.0.11 X
 
 ## world
 app-admin/sudo -sendmail
 app-admin/sysklogd logrotate
-#app-emulation/virtualbox -opengl -sdk
-app-emulation/virtualbox -sdk
-app-office/libreoffice -branding -cups -gstreamer -gtk python_single_target_python2_7 -python_single_target_python3_4 -python_targets_python3_4
-app-text/qpdfview qt5 -sqlite
+app-emulation/virtualbox -opengl -sdk
+app-text/zathura-meta cb
+app-office/libreoffice -branding -cups -gstreamer -gtk
+#dev-qt/qtgui gtk
 dev-util/geany -vte
-dev-vcs/git -webdav
+dev-vcs/git -perl -python -webdav
 lxqt-base/lxqt-meta admin -lximage -sudo -about -oxygen -policykit
 lxqt-base/lxqt-panel -kbindicator -mount
 mail-client/mutt imap sasl smime smtp
 mail-client/sylpheed -crypt spell
-#media-fonts/fontawesome -X -otf
-media-fonts/fontawesome -otf
 media-plugins/alsa-plugins ffmpeg
 #media-plugins/gst-plugins-meta ffmpeg http ogg theora vorbis
-net-im/skype apulse
-#net-irc/weechat -alias -exec -fifo -relay -spell -xfer
-net-irc/weechat -alias -exec -fifo -relay -spell -xfer python_single_target_python2_7 -python_single_target_python3_4 -python_targets_python3_4
+net-analyzer/nmap -nse
+##net-irc/weechat alias* buflist* charset exec* fifo* irc* logger* perl* python* relay* scripts* spell* ssl trigger* xfer*
+net-irc/weechat -* charset irc logger ssl
 net-misc/youtube-dl offensive
 net-p2p/transmission lightweight qt5
 net-wireless/wpa_supplicant -hs2-0 qt5
 sys-apps/busybox -static syslog
+sys-apps/smartmontools -daemon
 sys-boot/grub -fonts -themes
+sys-firmware/intel-microcode initramfs
 sys-fs/btrfs-progs -convert
+sys-kernel/genkernel -firmware
+sys-kernel/gentoo-sources experimental
 sys-power/pm-utils video_cards_intel
 sys-power/suspend -lzo
-www-client/chromium system-libvpx
-www-client/firefox bindist custom-cflags custom-optimization ffmpeg gstreamer gtk2 hwaccel system-icu system-jpeg system-libvpx system-sqlite system-harfbuzz system-libevent system-cairo -gmp-autoupdate
+#www-client/firefox bindist custom* ffmpeg gtk2 hwaccel system*
+www-client/firefox bindist custom-cflags custom-optimization ffmpeg gtk2 hwaccel system-cairo system-icu system-jpeg system-libvpx system-sqlite system-harfbuzz system-libevent
 #x11-drivers/xf86-video-intel dri3
-x11-terms/rxvt-unicode 256-color xft -vanilla
+#x11-terms/rxvt-unicode 256-color fading-colors wcwidth xft -vanilla
+x11-terms/rxvt-unicode 256-color
+x11-terms/st savedconfig
+x11-themes/arc-theme gtk3
+#x11-wm/bspwm examples
+x11-wm/dwm savedconfig
 
 ## ncurses
-=app-crypt/pinentry-0.9.7-r1 ncurses
+=app-crypt/pinentry-1.0.0-r2 ncurses
 dev-lang/python ncurses
 media-sound/alsa-utils ncurses
-sys-apps/util-linux ncurses -cramfs python_single_target_python2_7 -python_single_target_python3_4 -python_targets_python3_4
+sys-apps/util-linux ncurses -cramfs
 sys-libs/ncurses -minimal
 
 ## X
 media-fonts/* X
-media-fonts/terminus-font -X -pcf
+#media-fonts/terminus-font -X -pcf
 media-libs/libsdl X
-media-tv/kodi X -fishbmc -projectm -rsxs -samba -usb
-media-video/mpv X lua
+media-tv/kodi X nonfree -css
+media-video/mpv X drm lua -xv
 www-client/links X
 www-client/elinks X
 media-libs/gst-plugins-bad X
 sys-apps/dbus X		##dunst
-=x11-libs/libva-1.7.3 X
+=x11-libs/libva-1.7.3 X opengl
 =x11-libs/libva-intel-driver-1.7.3 X	##mpv
-=x11-libs/cairo-1.14.8 X
 
 ## dependencies
 app-crypt/gnupg -smartcard
-dev-python/dbus-python python_single_target_python2_7 -python_single_target_python3_4 -python_targets_python3_4
 app-shells/bash -net
 dev-lang/ruby -rdoc
+dev-libs/leveldb -tcmalloc
+dev-libs/openssl -sslv3
 media-libs/freetype -*
+media-libs/imlib2 X jpeg png
 media-libs/libcanberra -gtk
 media-libs/libpng apng
+#media-libs/libwebp -*
 #media-video/ffmpeg gnutls openssl theora vorbis #-fftools*
-media-video/ffmpeg libv4l openssl
+media-video/ffmpeg opengl openssl
 net-misc/iputils -arping 
 net-print/cups-filters -*
 sys-apps/kmod lzma
@@ -71,110 +92,194 @@ sys-apps/openrc -netifrc
 sys-devel/gcc -fortran
 sys-devel/llvm -llvm_targets_AMDGPU -llvm_targets_NVPTX -static-analyzer
 x11-base/xorg-server -minimal
+x11-libs/cairo X opengl
 x11-libs/libfm -automount
 x11-misc/xdg-utils -perl
-
-=app-text/sigil-0.9.6 python_single_target_python3_4
-=app-text/poppler-0.45.0 qt5
-=dev-lang/python-2.7.12 sqlite
-=dev-libs/libxml2-2.9.4-r1 python
-=dev-qt/qtwebkit-5.6.2 printsupport -opengl
-=sys-libs/zlib-1.2.11 minizip
-
-## firefox
-=dev-db/sqlite-3.17.0 secure-delete
-=media-libs/harfbuzz-1.4.5 icu
 
 ## gnome
 gnome-extra/zenity -*	## spotify
 
-## gentoo emerge autounmask
-# required by dev-qt/qtgui-5.6.2::gentoo[xcb]
-# required by www-client/qupzilla-2.0.2::gentoo
-# required by @selected
-# required by @world (argument)
-=x11-libs/libxcb-1.12-r2 xkb
+## python3_6
+=app-text/sigil-0.9.8 python_single_target_python3_6 python_targets_python3_6
+=sys-kernel/kergen-0.1.4 python_targets_python3_6
+#www-client/qutebrowser python_targets_python3_6
+=dev-util/meson-0.46.1 python_targets_python3_6
+
+## emerge autounmask
 # required by x11-misc/xdg-utils-1.1.1-r1::gentoo
 # required by xdg-utils (argument)
 =app-text/xmlto-0.0.26-r1 text
 # required by dev-python/wxpython-3.0.2.0::gentoo
 # required by media-gfx/displaycal-3.2.4.0::gentoo
 # required by displaycal (argument)
-=x11-libs/wxGTK-3.0.2.0-r2 tiff
-# required by www-client/qutebrowser-0.9.1::gentoo
-# required by qutebrowser (argument)
-#=dev-python/PyQt5-5.5.1 network gui webkit declarative widgets printsupport
-=dev-python/PyQt5-5.5.1 network gui webkit declarative widgets printsupport -opengl
-# required by dev-qt/qtcore-5.6.2-r1::gentoo
-# required by dev-qt/qtdbus-5.6.2::gentoo
-# required by media-gfx/lximage-qt-0.4.0::gentoo
-# required by @selected
-# required by @world (argument)
-=dev-libs/libpcre-8.40-r1 pcre16
+#=x11-libs/wxGTK-3.0.2.0-r2 tiff
 # required by media-tv/kodi-16.1::gentoo
 # required by media-tv/kodi:0 (argument)
 =dev-libs/libcdio-0.93 -minimal
-# required by net-im/skype-4.3.0.37-r6::gentoo
-# required by @selected
-# required by @world (argument)
-=dev-qt/qtwebkit-4.8.6-r1:4 -exceptions
 # required by app-text/sigil-0.9.6::gentoo
 # required by app-text/sigil:0 (argument)
 =dev-libs/xerces-c-3.1.4-r1 icu
-# required by lxqt-base/liblxqt-0.11.0-r1::gentoo
-# required by media-gfx/lximage-qt-0.5.0::gentoo
-# required by media-gfx/lximage-qt:0 (argument)
-=kde-frameworks/kwindowsystem-5.29.0 X
 # required by www-client/firefox-45.7.0::gentoo[system-libvpx]
 # required by www-client/firefox:0 (argument)
 =media-libs/libvpx-1.5.0 postproc svc
-# required by gnome-extra/zenity-3.22.0::gentoo
-# required by media-sound/spotify-1.0.49::gentoo
-# required by @selected
-# required by @world (argument)
-=x11-libs/gtk+-3.22.12 X
-# required by x11-wm/i3-4.13-r1::gentoo
-# required by @selected
-# required by @world (argument)
-=x11-libs/pango-1.40.5 X
-# required by net-im/skype-4.3.0.37-r6::gentoo
-# required by @selected
-# required by @world (argument)
-=dev-qt/qtgui-4.8.7:4 accessibility
-# required by x11-base/xorg-server-1.19.3::gentoo[glamor]
-# required by x11-drivers/xf86-input-evdev-2.10.5::gentoo
-# required by @__auto_slot_operator_replace_installed__ (argument)
-=media-libs/mesa-17.0.6 egl
-# required by x11-misc/i3lock-2.8::gentoo
-# required by @selected
-# required by @world (argument)
-=x11-libs/libxkbcommon-0.7.1 X
-# required by media-libs/mesa-17.0.6::gentoo[video_cards_i965,-video_cards_i915,-video_cards_intel]
-# required by www-client/firefox-52.1.0-r1::gentoo
-# required by @selected
-# required by @world (argument)
-=x11-libs/libdrm-2.4.80 video_cards_intel
-# required by x11-libs/gtk+-3.22.15::gentoo
-# required by www-client/firefox-52.1.0-r1::gentoo[-gtk2]
-# required by @selected
-# required by @world (argument)
-=media-libs/libepoxy-1.4.2 X
-# required by dev-qt/qtwebengine-5.7.1-r1::gentoo
-# required by www-client/qupzilla-2.0.2::gentoo
-# required by @selected
-# required by @world (argument)
-=dev-qt/qtwebchannel-5.7.1 qml
-# required by dev-python/PyQt5-5.7.1::gentoo[webkit]
-# required by www-client/qutebrowser-0.9.1::gentoo
-# required by @selected
-# required by @world (argument)
-=dev-qt/qtwebkit-5.7.1 printsupport
-# required by www-client/qupzilla-2.0.2::gentoo
-# required by @selected
-# required by @world (argument)
-=dev-qt/qtwebengine-5.7.1-r1 widgets
-# required by dev-qt/qtwebkit-5.7.1::gentoo
 # required by app-text/sigil-0.9.6::gentoo
 # required by @selected
 # required by @world (argument)
-=dev-qt/qtcore-5.7.1-r3 icu
+=dev-python/chardet-3.0.4 python_targets_python2_7 python_targets_python3_6
+# required by dev-python/packaging-16.8::gentoo
+# required by dev-python/setuptools-34.0.2-r1::gentoo
+# required by dev-python/chardet-3.0.4::gentoo
+# required by app-text/sigil-0.9.6::gentoo
+# required by @selected
+# required by @world (argument)
+=dev-python/pyparsing-2.2.0 python_targets_python3_6
+# required by dev-python/setuptools-34.0.2-r1::gentoo
+# required by dev-python/cssutils-1.0.1::gentoo
+# required by app-text/sigil-0.9.6::gentoo
+# required by app-text/sigil (argument)
+=dev-python/packaging-16.8 python_targets_python3_6
+# required by app-text/sigil-0.9.6::gentoo
+# required by app-text/sigil (argument)
+=dev-python/cssselect-0.9.1 python_targets_python2_7 python_targets_python3_6
+# required by app-text/sigil-0.9.6::gentoo
+# required by app-text/sigil (argument)
+=dev-python/pillow-3.4.2-r1 python_targets_python3_6
+# required by dev-python/setuptools-34.0.2-r1::gentoo
+# required by dev-python/cssutils-1.0.1::gentoo
+# required by app-text/sigil-0.9.6::gentoo
+# required by app-text/sigil (argument)
+=dev-python/appdirs-1.4.3 python_targets_python3_6
+# required by dev-qt/qtcore-5.7.1-r3::gentoo
+# required by www-client/qupzilla-2.1.2::gentoo
+# required by @selected
+# required by @world (argument)
+=dev-libs/libpcre-8.41-r1 pcre16
+# required by app-text/sigil-0.9.6::gentoo
+# required by @selected
+# required by @world (argument)
+=dev-python/regex-2017.04.05 python_targets_python2_7 python_targets_python3_6
+# required by media-tv/kodi-17.3-r1::gentoo[python_targets_python2_7]
+# required by @selected
+# required by @world (argument)
+=dev-lang/python-2.7.14-r1:2.7 sqlite
+# required by app-text/sigil-0.9.8::gentoo
+# required by @selected
+# required by @world (argument)
+=dev-python/cssutils-1.0.1 python_targets_python2_7 python_targets_python3_6
+# required by gnome-extra/zenity-3.22.0::gentoo
+# required by media-sound/spotify-1.0.64::gentoo
+# required by @selected
+# required by @world (argument)
+=x11-libs/gtk+-3.22.19 X
+# required by app-text/zathura-pdf-poppler-0.2.7::gentoo
+# required by app-text/zathura-meta-0::gentoo[pdf]
+# required by zathura-meta (argument)
+=app-text/poppler-0.62.0-r1 cairo
+# required by dev-qt/qtcore-5.9.4-r2::gentoo
+# required by dev-qt/qtwebengine-5.9.4::gentoo
+# required by www-client/qupzilla-2.1.2::gentoo
+# required by @selected
+# required by @world (argument)
+=dev-libs/libpcre2-10.30 pcre16
+# required by app-text/sigil-0.9.8::gentoo
+# required by @selected
+# required by @world (argument)
+=dev-python/lxml-4.1.1 python_targets_python3_6
+# required by dev-python/setuptools-34.0.2-r1::gentoo
+# required by dev-python/lxml-4.1.1::gentoo
+# required by app-text/sigil-0.9.8::gentoo
+# required by @selected
+# required by @world (argument)
+=dev-python/six-1.11.0 python_targets_python3_6
+# required by dev-python/cssutils-1.0.1::gentoo
+# required by app-text/sigil-0.9.8::gentoo
+# required by @selected
+# required by @world (argument)
+=dev-python/setuptools-36.7.2 python_targets_python3_6
+# required by dev-qt/qtgui-5.9.4-r3::gentoo[xcb]
+# required by dev-qt/qtsvg-5.9.4-r2::gentoo
+# required by www-client/qupzilla-2.2.5::gentoo
+# required by @selected
+# required by @world (argument)
+=x11-libs/libxcb-1.13 xkb
+# required by dev-util/itstool-2.0.2::gentoo
+# required by gnome-extra/yelp-xsl-3.20.1::gentoo
+# required by app-text/yelp-tools-3.18.0::gentoo
+# required by gnome-extra/zenity-3.24.0::gentoo
+# required by media-sound/spotify-1.0.72::gentoo
+# required by @selected
+# required by @world (argument)
+=dev-libs/libxml2-2.9.8 python icu
+# required by x11-misc/i3lock-2.8::gentoo
+# required by @selected
+# required by @world (argument)
+=x11-libs/libxkbcommon-0.8.0 X
+# required by dev-python/setuptools-36.7.2::gentoo
+# required by dev-python/pygments-2.2.0::gentoo
+# required by dev-python/docutils-0.13.1::gentoo
+# required by media-video/mpv-0.27.2::gentoo
+# required by @selected
+# required by @world (argument)
+=dev-python/certifi-2018.4.16 python_targets_python3_6
+# required by app-office/libreoffice-6.0.3.2::gentoo
+# required by @selected
+# required by @world (argument)
+=dev-libs/boost-1.65.0 nls
+# required by dev-python/html5lib-1.0.1::gentoo
+# required by app-text/sigil-0.9.8::gentoo
+# required by @selected
+# required by @world (argument)
+=dev-python/webencodings-0.5.1 python_targets_python3_6
+# required by app-text/sigil-0.9.8::gentoo
+# required by @selected
+# required by @world (argument)
+=dev-python/html5lib-1.0.1 python_targets_python3_6
+# required by dev-qt/qtwebengine-5.9.4::gentoo
+# required by www-client/qupzilla-2.2.5::gentoo
+# required by @selected
+# required by @world (argument)
+=sys-libs/zlib-1.2.11-r2 minizip
+# required by app-office/libreoffice-6.0.3.2::gentoo
+# required by @selected
+# required by @world (argument)
+=media-libs/harfbuzz-1.8.1 icu
+# required by sys-kernel/genkernel-3.5.3.3::gentoo
+# required by @selected
+# required by @world (argument)
+=sys-apps/util-linux-2.32-r4 static-libs
+# required by dev-qt/qtwebkit-5.9.1::gentoo
+# required by app-text/sigil-0.9.8::gentoo
+# required by @selected
+# required by @world (argument)
+=dev-qt/qtcore-5.9.6 icu
+# required by www-client/qupzilla-2.2.5::gentoo
+# required by @selected
+# required by @world (argument)
+=dev-qt/qtwebengine-5.9.6-r1 widgets
+# required by dev-qt/qtwebengine-5.9.6-r1::gentoo
+# required by www-client/qupzilla-2.2.5::gentoo
+# required by @selected
+# required by @world (argument)
+=dev-qt/qtwebchannel-5.9.6 qml
+# required by app-office/libreoffice-6.0.3.2::gentoo
+# required by @selected
+# required by @world (argument)
+=dev-libs/xmlsec-1.2.26 nss
+# required by x11-libs/libva-intel-driver-1.7.3::gentoo
+# required by x11-libs/libva-1.7.3::gentoo[video_cards_i965,-video_cards_intel]
+# required by media-libs/mesa-18.1.6::gentoo[vaapi]
+# required by virtual/opengl-7.0-r2::gentoo
+# required by dev-qt/qtgui-5.9.6::gentoo
+# required by dev-qt/qtsvg-5.9.6::gentoo
+# required by www-client/qupzilla-2.2.5::gentoo
+# required by @selected
+# required by @world (argument)
+=x11-libs/libdrm-2.4.93 video_cards_intel
+# required by www-client/firefox-52.9.0::gentoo[system-sqlite]
+# required by @selected
+# required by @world (argument)
+=dev-db/sqlite-3.24.0 secure-delete
+# required by x11-wm/i3-4.13-r1::gentoo
+# required by @selected
+# required by @world (argument)
+=x11-libs/pango-1.42.4 X

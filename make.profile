@@ -1,1 +1,1 @@
-../../media/portage/profiles/default/linux/x86/13.0
+../../media/portage/profiles/default/linux/x86/17.0

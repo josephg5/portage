@@ -2,23 +2,13 @@
 sys-apps/systemd
 sys-fs/udev
 
-#dev-lang/python:3.3
+#dev-lang/ruby:2.2
 #dev-lang/python:3.4
 #dev-lang/python:3.5
-
-#sys-apps/texinfo
-#app-text/pinfo
-
-#www-client/opera
-#=www-client/opera-12
-#=www-client/opera-12.16_p1860-r1
-<www-client/opera-13
-#>www-client/opera-45.0.2552.898
+#dev-lang/python:3.6
 
 ## dead ebuilds
-#=net-p2p/transmission-2.84-r4
-#=app-editors/nano-2.6.3
-#=app-office/libreoffice-5.2.3.3-r1
+#=games-arcade/lbreakout-010315-r1
 
 ## bloatware temp mask
 #app-office/libreoffice
@@ -27,6 +17,14 @@ sys-fs/udev
 #dev-qt/qtwebengine
 #dev-qt/qtwebkit
 
->app-office/libreoffice-5.2.7.2
->app-office/libreoffice-l10n-5.2.7.2
->www-client/firefox-52.2.0
+#>app-office/libreoffice-5.4
+#>app-office/libreoffice-l10n-5.4
+#>www-client/firefox-52.4
+
+>=sys-kernel/gentoo-sources-4.10
+#>=sys-kernel/linux-headers-4.10
+
+## temp mask
+app-text/gtkspell:3
+net-libs/libsrtp:2
+virtual/jpeg:62
