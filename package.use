@@ -12,38 +12,43 @@
 ##dev-libs/sway swaygrab swaylock
 ##=dev-libs/wlc-0.0.11 X
 
+## gentoo
+dev-vcs/git -perl -python -webdav
+sys-apps/busybox -static syslog
+sys-apps/portage -rsync-verify -xattr
+sys-kernel/genkernel -firmware
+
 ## world
 app-admin/sudo -sendmail
 app-admin/sysklogd logrotate
+app-editors/vim X -minimal
 app-emulation/virtualbox -opengl -sdk
 app-text/zathura-meta cb
 app-office/libreoffice -branding -cups -gstreamer -gtk
 #dev-qt/qtgui gtk
 dev-util/geany -vte
-dev-vcs/git -perl -python -webdav
 lxqt-base/lxqt-meta admin -lximage -sudo -about -oxygen -policykit
 lxqt-base/lxqt-panel -kbindicator -mount
 mail-client/mutt imap sasl smime smtp
 mail-client/sylpheed -crypt spell
+media-fonts/fontawesome -X -ttf
 media-plugins/alsa-plugins ffmpeg
 #media-plugins/gst-plugins-meta ffmpeg http ogg theora vorbis
 net-analyzer/nmap -nse
 ##net-irc/weechat alias* buflist* charset exec* fifo* irc* logger* perl* python* relay* scripts* spell* ssl trigger* xfer*
 net-irc/weechat -* charset irc logger ssl
 net-misc/youtube-dl offensive
-net-p2p/transmission lightweight qt5
+net-p2p/transmission gtk lightweight
 net-wireless/wpa_supplicant -hs2-0 qt5
-sys-apps/busybox -static syslog
 sys-apps/smartmontools -daemon
+sys-apps/util-linux -cramfs
 sys-boot/grub -fonts -themes
 sys-firmware/intel-microcode initramfs
 sys-fs/btrfs-progs -convert
-sys-kernel/genkernel -firmware
-sys-kernel/gentoo-sources experimental
 sys-power/pm-utils video_cards_intel
 sys-power/suspend -lzo
-#www-client/firefox bindist custom* ffmpeg gtk2 hwaccel system*
-www-client/firefox bindist custom-cflags custom-optimization ffmpeg gtk2 hwaccel system-cairo system-icu system-jpeg system-libvpx system-sqlite system-harfbuzz system-libevent
+<www-client/firefox-53 bindist custom-cflags custom-optimization ffmpeg gtk2 hwaccel system-cairo system-harfbuzz system-icu system-jpeg system-libevent system-libvpx system-sqlite
+>=www-client/firefox-60 bindist custom-optimization hwaccel system-harfbuzz system-jpeg system-libevent system-libvpx system-sqlite
 #x11-drivers/xf86-video-intel dri3
 #x11-terms/rxvt-unicode 256-color fading-colors wcwidth xft -vanilla
 x11-terms/rxvt-unicode 256-color
@@ -56,7 +61,7 @@ x11-wm/dwm savedconfig
 =app-crypt/pinentry-1.0.0-r2 ncurses
 dev-lang/python ncurses
 media-sound/alsa-utils ncurses
-sys-apps/util-linux ncurses -cramfs
+sys-apps/util-linux ncurses
 sys-libs/ncurses -minimal
 
 ## X
@@ -85,14 +90,17 @@ media-libs/libpng apng
 #media-libs/libwebp -*
 #media-video/ffmpeg gnutls openssl theora vorbis #-fftools*
 media-video/ffmpeg opengl openssl
+net-firewall/iptables nftables
 net-misc/iputils -arping 
 net-print/cups-filters -*
 sys-apps/kmod lzma
 sys-apps/openrc -netifrc
+sys-devel/clang -llvm_targets_AMDGPU -llvm_targets_NVPTX -static-analyzer
 sys-devel/gcc -fortran
-sys-devel/llvm -llvm_targets_AMDGPU -llvm_targets_NVPTX -static-analyzer
+sys-devel/llvm -llvm_targets_AMDGPU -llvm_targets_NVPTX
 x11-base/xorg-server -minimal
 x11-libs/cairo X opengl
+x11-libs/fltk -xinerama
 x11-libs/libfm -automount
 x11-misc/xdg-utils -perl
 
@@ -158,10 +166,6 @@ gnome-extra/zenity -*	## spotify
 # required by @selected
 # required by @world (argument)
 =dev-python/regex-2017.04.05 python_targets_python2_7 python_targets_python3_6
-# required by media-tv/kodi-17.3-r1::gentoo[python_targets_python2_7]
-# required by @selected
-# required by @world (argument)
-=dev-lang/python-2.7.14-r1:2.7 sqlite
 # required by app-text/sigil-0.9.8::gentoo
 # required by @selected
 # required by @world (argument)
@@ -210,10 +214,6 @@ gnome-extra/zenity -*	## spotify
 # required by @selected
 # required by @world (argument)
 =dev-libs/libxml2-2.9.8 python icu
-# required by x11-misc/i3lock-2.8::gentoo
-# required by @selected
-# required by @world (argument)
-=x11-libs/libxkbcommon-0.8.0 X
 # required by dev-python/setuptools-36.7.2::gentoo
 # required by dev-python/pygments-2.2.0::gentoo
 # required by dev-python/docutils-0.13.1::gentoo
@@ -243,10 +243,6 @@ gnome-extra/zenity -*	## spotify
 # required by @selected
 # required by @world (argument)
 =media-libs/harfbuzz-1.8.1 icu
-# required by sys-kernel/genkernel-3.5.3.3::gentoo
-# required by @selected
-# required by @world (argument)
-=sys-apps/util-linux-2.32-r4 static-libs
 # required by dev-qt/qtwebkit-5.9.1::gentoo
 # required by app-text/sigil-0.9.8::gentoo
 # required by @selected
@@ -283,3 +279,15 @@ gnome-extra/zenity -*	## spotify
 # required by @selected
 # required by @world (argument)
 =x11-libs/pango-1.42.4 X
+# required by sys-kernel/genkernel-3.5.3.3::gentoo
+# required by @selected
+# required by @world (argument)
+=sys-apps/util-linux-2.32-r4 static-libs
+# required by x11-misc/i3lock-2.10::gentoo
+# required by @selected
+# required by @world (argument)
+=x11-libs/libxkbcommon-0.8.2 X
+# required by media-tv/kodi-17.3-r1::gentoo[python_targets_python2_7]
+# required by @selected
+# required by @world (argument)
+=dev-lang/python-2.7.15:2.7 sqlite

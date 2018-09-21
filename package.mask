@@ -2,29 +2,22 @@
 sys-apps/systemd
 sys-fs/udev
 
-#dev-lang/ruby:2.2
-#dev-lang/python:3.4
-#dev-lang/python:3.5
-#dev-lang/python:3.6
-
-## dead ebuilds
-#=games-arcade/lbreakout-010315-r1
-
 ## bloatware temp mask
-#app-office/libreoffice
-#app-office/libreoffice-l10n
-#www-client/firefox
 #dev-qt/qtwebengine
 #dev-qt/qtwebkit
+#www-client/firefox
 
 #>app-office/libreoffice-5.4
 #>app-office/libreoffice-l10n-5.4
-#>www-client/firefox-52.4
+#>www-client/firefox-60
 
->=sys-kernel/gentoo-sources-4.10
-#>=sys-kernel/linux-headers-4.10
+## dead ebuilds
+#=games-arcade/lbreakout-010315-r1	## patched
+=www-client/firefox-60.2.0
 
 ## temp mask
-app-text/gtkspell:3
-net-libs/libsrtp:2
-virtual/jpeg:62
+#dev-lang/python:3.6
+#dev-lang/ruby:2.2
+#app-text/gtkspell:3
+#net-libs/libsrtp:2
+#virtual/jpeg:62
