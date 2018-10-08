@@ -9,15 +9,19 @@ sys-fs/udev
 
 #>app-office/libreoffice-5.4
 #>app-office/libreoffice-l10n-5.4
-#>www-client/firefox-60
+>www-client/firefox-60
+
+dev-lang/go
+>dev-util/android-tools-8
 
 ## dead ebuilds
 #=games-arcade/lbreakout-010315-r1	## patched
-=www-client/firefox-60.2.0
+#=www-client/firefox-60.2.0
 
 ## temp mask
 #dev-lang/python:3.6
 #dev-lang/ruby:2.2
-#app-text/gtkspell:3
-#net-libs/libsrtp:2
+app-text/gtkspell:3
+net-libs/libsrtp:2
 #virtual/jpeg:62
+dev-java/swt:3.8

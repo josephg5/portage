@@ -3,7 +3,7 @@
 #*/* -printsupport
 
 ## android
-#dev-java/icedtea-bin -cups
+dev-java/icedtea-bin -cups -gtk -webstart
 
 ## wayland
 ##=x11-base/xorg-server-1.19.5 wayland
@@ -35,11 +35,13 @@ media-fonts/fontawesome -X -ttf
 media-plugins/alsa-plugins ffmpeg
 #media-plugins/gst-plugins-meta ffmpeg http ogg theora vorbis
 net-analyzer/nmap -nse
+net-firewall/nftables -gmp
 ##net-irc/weechat alias* buflist* charset exec* fifo* irc* logger* perl* python* relay* scripts* spell* ssl trigger* xfer*
 net-irc/weechat -* charset irc logger ssl
 net-misc/youtube-dl offensive
 net-p2p/transmission gtk lightweight
 net-wireless/wpa_supplicant -hs2-0 qt5
+sci-visualization/gnuplot -gd
 sys-apps/smartmontools -daemon
 sys-apps/util-linux -cramfs
 sys-boot/grub -fonts -themes
@@ -69,7 +71,7 @@ media-fonts/* X
 #media-fonts/terminus-font -X -pcf
 media-libs/libsdl X
 media-tv/kodi X nonfree -css
-media-video/mpv X drm lua -xv
+media-video/mpv X drm luajit -xv
 www-client/links X
 www-client/elinks X
 media-libs/gst-plugins-bad X
@@ -83,6 +85,8 @@ app-shells/bash -net
 dev-lang/ruby -rdoc
 dev-libs/leveldb -tcmalloc
 dev-libs/openssl -sslv3
+dev-qt/qtwebkit -gstreamer -hyphen -printsupport
+media-fonts/noto -X
 media-libs/freetype -*
 media-libs/imlib2 X jpeg png
 media-libs/libcanberra -gtk
@@ -93,6 +97,7 @@ media-video/ffmpeg opengl openssl
 net-firewall/iptables nftables
 net-misc/iputils -arping 
 net-print/cups-filters -*
+sys-apps/iproute2 -minimal
 sys-apps/kmod lzma
 sys-apps/openrc -netifrc
 sys-devel/clang -llvm_targets_AMDGPU -llvm_targets_NVPTX -static-analyzer
@@ -149,9 +154,6 @@ gnome-extra/zenity -*	## spotify
 # required by app-text/sigil-0.9.6::gentoo
 # required by app-text/sigil (argument)
 =dev-python/cssselect-0.9.1 python_targets_python2_7 python_targets_python3_6
-# required by app-text/sigil-0.9.6::gentoo
-# required by app-text/sigil (argument)
-=dev-python/pillow-3.4.2-r1 python_targets_python3_6
 # required by dev-python/setuptools-34.0.2-r1::gentoo
 # required by dev-python/cssutils-1.0.1::gentoo
 # required by app-text/sigil-0.9.6::gentoo
@@ -200,12 +202,6 @@ gnome-extra/zenity -*	## spotify
 # required by @selected
 # required by @world (argument)
 =dev-python/setuptools-36.7.2 python_targets_python3_6
-# required by dev-qt/qtgui-5.9.4-r3::gentoo[xcb]
-# required by dev-qt/qtsvg-5.9.4-r2::gentoo
-# required by www-client/qupzilla-2.2.5::gentoo
-# required by @selected
-# required by @world (argument)
-=x11-libs/libxcb-1.13 xkb
 # required by dev-util/itstool-2.0.2::gentoo
 # required by gnome-extra/yelp-xsl-3.20.1::gentoo
 # required by app-text/yelp-tools-3.18.0::gentoo
@@ -291,3 +287,24 @@ gnome-extra/zenity -*	## spotify
 # required by @selected
 # required by @world (argument)
 =dev-lang/python-2.7.15:2.7 sqlite
+# required by dev-util/android-sdk-update-manager-24.4.1::gentoo
+# required by android-sdk-update-manager (argument)
+=dev-java/swt-3.7.2-r2:3.7 cairo
+# required by dev-qt/qtgui-5.9.6::gentoo
+# required by dev-qt/qtsvg-5.9.6::gentoo
+# required by www-client/falkon-3.0.1::gentoo
+# required by @selected
+# required by @world (argument)
+=x11-libs/libxcb-1.13.1 xkb
+# required by dev-util/android-studio-3.1.4.0.173.4907809::gentoo
+# required by android-studio (argument)
+=sys-libs/ncurses-5.9-r101:5 tinfo
+# required by app-text/sigil-0.9.8::gentoo
+# required by @selected
+# required by @world (argument)
+=dev-python/pillow-5.2.0 python_targets_python3_6
+# required by dev-python/pillow-5.2.0::gentoo
+# required by media-tv/kodi-17.3-r1::gentoo
+# required by @selected
+# required by @world (argument)
+=dev-python/olefile-0.44 python_targets_python3_6
